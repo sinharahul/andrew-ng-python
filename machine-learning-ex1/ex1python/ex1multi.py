@@ -20,32 +20,21 @@ def addOnes(X):
       return np.concatenate((ones,X),1)
 def computeCost(X,y,theta):
       m=len(y)
-      y=y.reshape(m,1)
       t1=(dot(X,theta)-y).transpose()
       t2=dot(X,theta)-y
       J=dot(t1,t2)/(2*m)
-      print("J=",J)
       return J
 def computeThetaTerm(X,y,alpha,theta):
-      m=len(y)
-      h=np.dot(X,theta)
-      x=(h-y)
-      t1=X[:,0].reshape(m,1)
-      t2=X[:,1].reshape(m,1)
-      t3=X[:,2].reshape(m,1)
-      theta[0] -= (alpha /m) * np.sum(x)
-      theta[1] -= (alpha /m) * np.sum(x*t2)
-      theta[2] -= (alpha /m) * np.sum(x*t3)
-      return theta
-      #theta -= (np.dot(x,X)*(alpha/m))
+     m=len(y)
+     #3 * 47 and 47 *1 = 3* 1
+     theta-= (alpha/m) * dot(X.transpose(),(dot(X,theta)-y));
 
 def gradientDescentMulti(X,y,theta,alpha,num_iters):
       m=len(y)
       J_history=np.zeros((num_iters,1))
       for iter in range(num_iters):
-            print("Before Theta in ",iter,theta)
-            theta=computeThetaTerm(X,y,alpha,theta)
-            print("Theta in ",iter,theta)
+            #Pass by reference
+            computeThetaTerm(X,y,alpha,theta)
             cost=computeCost(X,y,theta)
             J_history[iter]=cost
       return (theta,J_history)
@@ -83,16 +72,16 @@ y=np.array(data['Price'])
 m=len(y)
 #Very important
 y=y.reshape(m,1) 
-(theta,J_history)=gradientDescentMulti(X,y,theta,alpha,num_iters)
-print(theta)
+gradientDescentMulti(X,y,theta,alpha,num_iters)
 x1=(1650-mean_array[0])/std_array[0]
 x2=(3-mean_array[1])/std_array[1]
 
 predict=np.dot(np.array([1,x1,x2]),theta)
 
-print("Price od 1650 sq ftc3 bedroom house is using gradient descent  ",predict)
+print("Price of 1650 sqft ,3 bedroom house  using gradient descent  =",predict)
 
 theta=normalEquations(data)
 print(theta)
-price1=dot(np.array([1,1650,3]),theta)
-print(price1)
+predictNormal=dot(np.array([1,1650,3]),theta)
+print("Price od 1650 sqft ,3 bedroom house  using normal equations  =",predictNormal)
+
