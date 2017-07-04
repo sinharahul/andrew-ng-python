@@ -16,13 +16,14 @@ double computeCost(mat X,vec y,vec theta){
 	cost=sum(pow((h-y),2))/(2.0*m);
 	return cost;
 } 
-void gradientDescent(mat X,vec y,vec theta,double alpha,int numIters){
+vec gradientDescent(mat X,vec y,vec theta,double alpha,int numIters){
 	int m=y.size();
 	for(int i=0;i<numIters;i++){
 		vec h=X * theta;
-		theta -= (alpha/m)*(X.transpose() * (h-y));
+		theta -= (alpha/m)*(X.t() * (h-y));
 		cout << "\nIter " << i << "theta=" << theta << endl;
 	}
+	return theta;
 }
 int main()
   {
