@@ -1,0 +1,3 @@
+brew install armadillo
+g++ ex1.cpp -o ex1 -O2 -larmadillo && ./ex1
+

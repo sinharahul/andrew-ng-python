@@ -1,0 +1,15 @@
+1)Install sbt 0.13.13 using brew upgrade sbt
+2)sbt new scala/hello-world.g8
+  821  sbt
+  822   echo 'addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "5.1.0")' > project/plugins.sbt
+  823  sbt
+  826  cat project/plugins.sbt
+  827  > sbt
+       > eclipse
+
+3)Import generated project into eclipse 
+
+4)Create worksheet
+
+5)Follow breeze docs
+
