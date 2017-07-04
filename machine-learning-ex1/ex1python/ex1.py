@@ -30,13 +30,14 @@ def computeThetaTerm(X,y,alpha,theta):
       t2=X[:,1].reshape(m,1)
       theta[0] -= np.sum(x*t1)*alpha/m
       theta[1] -= np.sum(x*t2)*alpha/m
+      print("\n",theta)
 def gradientDescent(X,y,theta,alpha,num_iters):
       m=len(y)
       J_history=np.zeros((num_iters,1))
       for iter in range(num_iters):
             computeThetaTerm(X,y,alpha,theta)
             J_history[iter]=computeCost(X,y,theta)
-      print(J_history)
+     # print(J_history)
       return J_history
 print("Running warm up exercise")
 print("5 * 5 identity matrix")
@@ -49,7 +50,7 @@ X=data["Population"];y=data["Profit"]
 m=len(y)
 #Plot data
 #plt.show()
-plotData(data)
+#plotData(data)
 #Convert to numpy matrix for easy math
 matrix=pd.DataFrame.as_matrix(data)
 #Add a column of ones to X
@@ -58,7 +59,7 @@ X=addOnes(matrix[:,0])
 theta=np.zeros( (2,1) )
 y=np.transpose(np.array([matrix[:,1]]))
 # Some gradient descent settings
-iterations = 1500
+iterations = 400
 #learning rate
 alpha = 0.01         
 print("Testing the cost function")
@@ -71,4 +72,6 @@ theta1[1,0]=2
 #Testing computeCost
 print (computeCost(X, y, theta1))
 #Apllying gradient descent
-gradientDescent(X,y,theta,alpha,iterations)
+history=gradientDescent(X,y,theta,alpha,iterations)
+print("Theta from gradient descent",theta)
+#print(history[399])

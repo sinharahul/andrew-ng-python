@@ -73,6 +73,7 @@ m=len(y)
 #Very important
 y=y.reshape(m,1) 
 gradientDescentMulti(X,y,theta,alpha,num_iters)
+print("Theta from gradient descent")
 x1=(1650-mean_array[0])/std_array[0]
 x2=(3-mean_array[1])/std_array[1]
 

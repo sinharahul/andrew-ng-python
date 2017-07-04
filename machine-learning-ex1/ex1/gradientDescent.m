@@ -21,7 +21,7 @@ t0 = sum (h - y);
 t1 = sum ((h - y) .* X(:,2));
 theta(1) = theta(1) - alpha * (t0) / m;        
 theta(2) = theta(2) - alpha * (t1) / m;               
-
+fprintf("\ntheta1=%f theta2 = %f",theta(1),theta(2));
 
 
     % ============================================================
