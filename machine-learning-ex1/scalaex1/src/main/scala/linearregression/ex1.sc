@@ -4,7 +4,7 @@ import breeze.numerics._
 import breeze.plot._
 import java.io.File
 object ex1 {
-  println(" Running warmexercise")                //>  Running warmexercise
+  println(" Hello puppy warmexercise")            //>  Hello puppy warmexercise
   def warmupExercise(n: Int) = DenseMatrix.eye[Double](n)
                                                   //> warmupExercise: (n: Int)breeze.linalg.DenseMatrix[Double]
   def plotData(X: DenseVector[Double], Y: DenseVector[Double]) = {
@@ -96,7 +96,7 @@ object ex1 {
                                                   //| 95, 0.152, 2.8214, 1.8451, 4.2959, 7.2029, 1.9869, 0.14454, 9.0551, 0.61705)
                                                   //| 
   val m = y.length                                //> m  : Int = 97
-  //plotData(X,y)
+  plotData(X1,y)
   val ones=DenseVector.ones[Double](m)            //> ones  : breeze.linalg.DenseVector[Double] = DenseVector(1.0, 1.0, 1.0, 1.0, 
                                                   //| 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1
                                                   //| .0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.
@@ -171,9 +171,9 @@ object ex1 {
      cost
   }                                               //> computeCost: (X: breeze.linalg.DenseMatrix[Double], y: breeze.linalg.DenseV
                                                   //| ector[Double], theta: breeze.linalg.DenseVector[Double])Double
-  computeCost(X,y,DenseVector(0,0))               //> Jul 03, 2017 7:48:47 PM com.github.fommil.jni.JniLoader liberalLoad
+  computeCost(X,y,DenseVector(0,0))               //> Jul 03, 2017 11:47:31 PM com.github.fommil.jni.JniLoader liberalLoad
                                                   //| INFO: successfully loaded /var/folders/h3/h2v2mpm14s33j6p2q5dywfnh0000gn/T/
-                                                  //| jniloader7169598912590549443netlib-native_system-osx-x86_64.jnilib
+                                                  //| jniloader8618365112544413698netlib-native_system-osx-x86_64.jnilib
                                                   //| res1: Double = 32.072733877455654
   computeCost(X,y,DenseVector(-1,2))              //> res2: Double = 54.24245508201238
   def gradientDescent(m:Integer,X:DenseMatrix[Double],y:DenseVector[Double],theta:DenseVector[Double], alpha:Double, iterations:Integer):(DenseVector[Double],DenseVector[Double])={
@@ -216,5 +216,5 @@ object ex1 {
                                                   //| 47025, 5.722433188909259, 5.7179471073335275, 5.7134771843647485, 5.7090233
                                                   //| 61800547, 5.704585581648199, 5.700163786123851, 5.695757917651815, 5.691367
                                                   //| 918863751, 5.6869937325
-                                                  //| Output exceeds cutoff limit.
+                                                  //| Output exceeds cutoff limit.-
 }

@@ -59,7 +59,7 @@ X=addOnes(matrix[:,0])
 theta=np.zeros( (2,1) )
 y=np.transpose(np.array([matrix[:,1]]))
 # Some gradient descent settings
-iterations = 400
+iterations = 1000
 #learning rate
 alpha = 0.01         
 print("Testing the cost function")
