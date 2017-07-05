@@ -4,12 +4,20 @@ in 3 programming languages
 1)Octave -To find correct answers and thats the default language of choice in assignment.
 2)Python- chose python to get acquainted with numpy,pandas ,matplotlib as these are superb libraries
           and almost every book on machine learning refers to them.Also jupyter notebooks is great way to doc/debug
-3)C++  -Wanted to learn C++ and it had good linear algebra libraries like armadillo which is easy to use
-        as it has good docs.I surprisingly implemented faster in C++ than python as armadillo has a octave to armadillo syntax conversion table .I havent implemented plotting though.I think C++/C are really underrated languages for data science.They are super fast ,elegant and great library support .C++ has evolved a lot .
-I find it fun to implement the solutions in multiple languages.
-It reinforces the concepts.
+          Cross check soutions http://www.johnwittenauer.net/machine-learning-exercises-in-python-part-3/
+3)C++  -Wanted to learn C++(having ignored it for 17 years) and it had good linear algebra libraries like armadillo which is easy to use
+        as it has good docs.I surprisingly implemented faster in C++ than 
+        python as armadillo has a octave to armadillo syntax conversion table .I havent implemented plotting though.
+        I think C++/C are really underrated languages for data science.
+        They are super fast ,elegant and great library support .C++ has evolved a lot .
+        "C++ without Fear" is awesome resource to learn
+4)Scala- Scala libraries like breeze comparable to numpy .breeze viz is cool .
+Scala worksheets is fun.Code is concise and elegant
+I find it fun to implement the solutions in multiple languages.Doing so reinforces the concepts(Having implemented gradient descent
+ so many times ,i implement it without looking at notes.
 Future languages to add
-1)Scala
+1)Julia
 2)Haskell
 3)Clojure
 4)erlang/elixir
+5)R
