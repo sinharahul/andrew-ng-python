@@ -1,6 +1,6 @@
 Welcome ....
 Trying to implement the solutions to andrew-ng's famous coursera course
-in 3 programming languages
+in 4 programming languages
 1)Octave -To find correct answers and thats the default language of choice in assignment.
 2)Python- chose python to get acquainted with numpy,pandas ,matplotlib as these are superb libraries
           and almost every book on machine learning refers to them.Also jupyter notebooks is great way to doc/debug
