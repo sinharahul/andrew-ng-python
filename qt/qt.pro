@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui charts
+QT       += core gui charts printsupport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -26,11 +26,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    linearregression.cpp
+    linearregression.cpp \
+    qcustomplot.cpp
 
 HEADERS += \
         mainwindow.h \
-    linearregression.h
+    linearregression.h \
+    qcustomplot.h
 
 FORMS += \
         mainwindow.ui

@@ -44,7 +44,7 @@ vec gradientDescent(mat X,vec y,vec theta,double alpha,int numIters){
     for(int i=0;i<numIters;i++){
         vec h=X * theta;
         theta -= (alpha/m)*(X.t() * (h-y));
-        cout << "\nIter " << i << "theta=" << theta << endl;
+      //  cout << "\nIter " << i << "theta=" << theta << endl;
         r(i)=computeCost(X,y,theta);
     }
     return r;
@@ -74,7 +74,7 @@ vec run(mat A){
     return r;
 }
 
-QChartView *LinearRegression::createChartView(){
+QCustomPlot *LinearRegression::plotGradient(){
    // QList<QChartView *> m_charts;
     mat A=loadFile();
     vec x= A.col(0);
@@ -83,26 +83,26 @@ QChartView *LinearRegression::createChartView(){
     cout << "len=" << len << endl;
     warmupExercise();
     vec r=run(A);
-    //QScatterSeries *series = new QScatterSeries();
-    QLineSeries *series=new QLineSeries();
-    series->setName("scatter1");
-    //series->setMarkerShape(QScatterSeries::MarkerShapeCircle);
-    /**
-    for(int i=0;i<len;i++){
-        series->append(x(i), y(i));
+    int iters=r.size();
+    QCustomPlot *customPlot=new QCustomPlot();
+   // generate some data:
+    QVector<double> xv(iters), yv(iters); // initialize with entries 0..100
+    for (int i=0; i<iters; ++i)
+    {
+      xv[i] = i; // x goes from -1 to 1
+      yv[i] = r(i); // let's plot a quadratic function
+      cout << "\ni=" << i << "\t" << yv[i];
     }
-    */
-    for(int i=0;i<400;i++){
-        series->append(i, r(i));
-    }
-    QChart *chart = new QChart();
-    chart->legend()->hide();
-    chart->addSeries(series);
-    chart->createDefaultAxes();
-   // chart->setTitle("Scatter Plot: Population vs profit");
-    chart->setTitle("Cost vs Iterations");
-    QChartView *chartView = new QChartView(chart);
-    chartView->setRenderHint(QPainter::Antialiasing);
-     //m_charts << chartView;
-    return chartView;
+    // create graph and assign data to it:
+    customPlot->addGraph();
+    customPlot->graph(0)->setData(xv, yv);
+    // give the axes some labels:
+    customPlot->xAxis->setLabel("Iterations");
+    customPlot->yAxis->setLabel("Cost");
+    // set axes ranges, so we see all data:
+    customPlot->xAxis->setRange(0, iters);
+    customPlot->yAxis->setRange(4.5, 6.5 );
+    customPlot->replot();
+    A.min(),A.max();
+    return customPlot;
 }

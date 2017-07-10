@@ -4,7 +4,7 @@
 #include <armadillo>
 #include <algorithm>
 #include <cmath>
-
+#include "qcustomplot.h"
 using namespace std;
 using namespace arma;
 #include <QtCharts/QLineSeries>
@@ -17,7 +17,7 @@ public:
     explicit LinearRegression();
     ~LinearRegression();
     void runGradientDescent();
-   QChartView* createChartView();
+    QCustomPlot* plotGradient();
 };
 
 #endif // LINEARREGRESSION_H

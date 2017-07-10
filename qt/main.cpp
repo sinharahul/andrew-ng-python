@@ -1,5 +1,6 @@
 #include "linearregression.h"
 #include "mainwindow.h"
+#include "qcustomplot.h"
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QApplication>
@@ -12,7 +13,8 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     LinearRegression lr;
     QMainWindow window;
-    window.setCentralWidget(lr.createChartView());
+    QCustomPlot *customPlot=lr.plotGradient();
+    window.setCentralWidget(customPlot);
     window.resize(900, 600);
     window.show();
     return a.exec();
