@@ -18,6 +18,11 @@ public:
     ~LinearRegression();
     void runGradientDescent();
     QCustomPlot* plotGradient();
+private:
+    vec th;
+    vec run(mat A);
+    vec gradientDescent(mat X,vec y,vec theta,double alpha,int numIters);
+
 };
 
 #endif // LINEARREGRESSION_H

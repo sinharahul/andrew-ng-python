@@ -38,18 +38,19 @@ double computeCost(mat X,vec y,vec theta){
     cost=sum(pow((h-y),2))/(2.0*m);
     return cost;
 }
-vec gradientDescent(mat X,vec y,vec theta,double alpha,int numIters){
+vec LinearRegression::gradientDescent(mat X,vec y,vec theta,double alpha,int numIters){
     int m=y.size();
     vec r(numIters);
     for(int i=0;i<numIters;i++){
         vec h=X * theta;
         theta -= (alpha/m)*(X.t() * (h-y));
-      //  cout << "\nIter " << i << "theta=" << theta << endl;
+        //  cout << "\nIter " << i << "theta=" << theta << endl;
         r(i)=computeCost(X,y,theta);
     }
+    th=theta;
     return r;
 }
-vec run(mat A){
+vec LinearRegression::run(mat A){
     vec x= A.col(0);
     vec y=A.col(1);
     int len=x.size();
@@ -75,7 +76,7 @@ vec run(mat A){
 }
 
 QCustomPlot *LinearRegression::plotGradient(){
-   // QList<QChartView *> m_charts;
+    // QList<QChartView *> m_charts;
     mat A=loadFile();
     vec x= A.col(0);
     vec y=A.col(1);
@@ -85,13 +86,13 @@ QCustomPlot *LinearRegression::plotGradient(){
     vec r=run(A);
     int iters=r.size();
     QCustomPlot *customPlot=new QCustomPlot();
-   // generate some data:
+    // generate some data:
     QVector<double> xv(iters), yv(iters); // initialize with entries 0..100
     for (int i=0; i<iters; ++i)
     {
-      xv[i] = i; // x goes from -1 to 1
-      yv[i] = r(i); // let's plot a quadratic function
-      cout << "\ni=" << i << "\t" << yv[i];
+        xv[i] = i; // x goes from -1 to 1
+        yv[i] = r(i); // let's plot a quadratic function
+        cout << "\ni=" << i << "\t" << yv[i];
     }
     // create graph and assign data to it:
     customPlot->addGraph();
@@ -102,7 +103,26 @@ QCustomPlot *LinearRegression::plotGradient(){
     // set axes ranges, so we see all data:
     customPlot->xAxis->setRange(0, iters);
     customPlot->yAxis->setRange(4.5, 6.5 );
+
+    int min=A.min();
+    int max=A.max();
+    int n=(max-min+1);
+    QVector<double> xv1(n), yv1(n);
+    int count=0;
+    for(int i=min;i<(max);i++){
+        vec x={1.0,(double)i};
+        xv1[count]=i;
+        yv1[count++]=dot(x,th);
+        cout << "\nyv1[count++]" << dot(x,th);
+    }
+    customPlot->addGraph();
+    customPlot->graph(1)->setData(xv1, yv1);
+    // give the axes some labels:
+    customPlot->xAxis->setLabel("Population");
+    customPlot->yAxis->setLabel("Predicted Cost");
+    // set axes ranges, so we see all data:
+    customPlot->xAxis->setRange(min, max);
+    customPlot->yAxis->setRange(-100,100 );
     customPlot->replot();
-    A.min(),A.max();
     return customPlot;
 }
