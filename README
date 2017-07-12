@@ -1,11 +1,11 @@
 Welcome ....
 Trying to implement the solutions to andrew-ng's famous coursera course
-in 3 programming languages
+in 4 programming languages
 1)Octave -To find correct answers and thats the default language of choice in assignment.
 2)Python- chose python to get acquainted with numpy,pandas ,matplotlib as these are superb libraries
           and almost every book on machine learning refers to them.Also jupyter notebooks is great way to doc/debug
           Cross check soutions http://www.johnwittenauer.net/machine-learning-exercises-in-python-part-3/
-3)C++  -Wanted to learn C++(having ignored it for 17 years) and it had good linear algebra libraries like armadillo which is easy to use
+3)C++  -Wanted to learn C++(having ignored it for 17 years) and it had good linear algebra libraries like armadillo and excellent graphical libs like Qt which is easy to use
         as it has good docs.I surprisingly implemented faster in C++ than 
         python as armadillo has a octave to armadillo syntax conversion table .I havent implemented plotting though.
         I think C++/C are really underrated languages for data science.
@@ -14,7 +14,7 @@ in 3 programming languages
 4)Scala- Scala libraries like breeze comparable to numpy .breeze viz is cool .
 Scala worksheets is fun.Code is concise and elegant
 I find it fun to implement the solutions in multiple languages.Doing so reinforces the concepts(Having implemented gradient descent
- so many times ,i implement it without looking at notes.
+ so many times ,i implement it without looking at notes.Also get to learn Octave,C++,scala and python!!
 Future languages to add
 1)Julia
 2)Haskell
