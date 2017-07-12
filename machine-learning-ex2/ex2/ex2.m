@@ -33,7 +33,7 @@ X = data(:, [1, 2]); y = data(:, 3);
 fprintf(['Plotting data with + indicating (y = 1) examples and o ' ...
          'indicating (y = 0) examples.\n']);
 
-%plotData(X, y);
+plotData(X, y);
 
 % Put some labels 
 hold on;
@@ -143,7 +143,7 @@ fprintf('Expected value: 0.775 +/- 0.002\n\n');
 
 % Compute accuracy on our training set
 p = predict(theta, X);
-
+%fprintf('p= %f\n', p);
 fprintf('Train Accuracy: %f\n', mean(double(p == y)) * 100);
 fprintf('Expected accuracy (approx): 89.0\n');
 fprintf('\n');
