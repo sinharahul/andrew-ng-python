@@ -23,10 +23,8 @@ grad = zeros(size(theta));
     A=-(y .* log(h));
 	B=-(1-y) .* log(1-h);
 	J= sum(A+B)/ (m);
-	fprintf('\nX:\n', X);
-	pause;
-	fprintf('\nX: %fh-y', h-y);
-	pause;
+%	fprintf('\nX:\n', X);
+%	fprintf('\nX: %fh-y', h-y);
     grad=(X' * (h-y))/m;
 
 
