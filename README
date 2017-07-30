@@ -16,8 +16,8 @@ Scala worksheets is fun.Code is concise and elegant
 I find it fun to implement the solutions in multiple languages.Doing so reinforces the concepts(Having implemented gradient descent
  so many times ,i implement it without looking at notes.Also get to learn Octave,C++,scala and python!!
 Future languages to add
-1)Julia
+1)Julia(As easy to use as python,maybe easier) superb library support for linear algebra and plotting
 2)Haskell
 3)Clojure
-4)erlang/elixir
+4)erlang/elixir-
 5)R
