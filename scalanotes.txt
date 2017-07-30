@@ -12,4 +12,21 @@
 4)Create worksheet
 
 5)Follow breeze docs
-
+import breeze.linalg._
+import breeze.optimize.{DiffFunction, LBFGS}
+import breeze.stats._
+def fminunc(costFn: (Theta) => (Cost, Gradients), initialTheta: Theta, maxIterations: Int = 400): Theta = {
+    val f = new DiffFunction[DenseVector[Double]] {
+      def calculate(theta: DenseVector[Double]): (Double, DenseVector[Double]) = costFn(theta)
+    }
+    val lbfgs = new LBFGS[DenseVector[Double]](maxIter = maxIterations, m = 3)
+    lbfgs.minimize(f, initialTheta)
+  }
+def costFunction(X: Features, y: Labels, theta: Theta): (Cost, Gradients) = {
+    val cost = computeCost(X, y, theta)
+    val gradients = Array.tabulate[Double](theta.length)(i => (1.0/y.length) * sum((h(theta)(X) :- y) :* X(::, i)))
+    (cost, DenseVector[Double](gradients))
+  }
+  
+  
+  
