@@ -11,9 +11,12 @@ function out = mapFeature(X1, X2)
 %
 
 degree = 6;
+count=0
 out = ones(size(X1(:,1)));
 for i = 1:degree
     for j = 0:i
+		count=count+1;
+		fprintf('Count=%f',count);	
         out(:, end+1) = (X1.^(i-j)).*(X2.^j);
     end
 end
